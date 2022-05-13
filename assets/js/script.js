@@ -25,3 +25,4 @@ function definition(){
     .then(response => response.json())
     .then(data => console.log(data));
 }
+definition();
