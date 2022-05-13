@@ -10,9 +10,9 @@ function definition(){
 definition();
 
 apiKey='246175eb-f44c-41df-8446-5e18508e4805';
-
+spanishWord= "bananas";
 function language(spanish){
-    var queryURL='https://www.dictionaryapi.com/api/v3/references/spanish/json/language?key=' + apiKey;
+    var queryURL='https://www.dictionaryapi.com/api/v3/references/spanish/json/' + spanishWord + '?key=' + apiKey;
     fetch(queryURL).then(response => response.json())
     .then(data => console.log(data));
 }
