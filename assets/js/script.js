@@ -1,24 +1,6 @@
-const query = "lame";
-// async function getTranslation(query){
-//     function getTranslation(query){
-//         const res = await fetch("https://libretranslate.com/translate", {
-//             method: "POST",
-//             body: JSON.stringify({
-//                 q: query,
-//                 source: "en",
-//                 target: "es",
-//                 format: "text"
-//             }),
-//             headers: { "Content-Type": "application/json" }
-//         });
-//         console.log(await res.json());
-//     }
-   
-// // }
-// getTranslation(query);
 
-// https://api.dictionaryapi.dev/api/v2/entries/en/
 
+const query = "fruit";
 
 function definition(){
     fetch('https://api.dictionaryapi.dev/api/v2/entries/en/'+ query)
@@ -26,3 +8,42 @@ function definition(){
     .then(data => console.log(data));
 }
 definition();
+
+
+
+
+function language(){
+    fetch('https://www.dictionaryapi.com/api/v3/references/spanish/json/language?key=https://dictionaryapi.com/account/example?key=246175eb-f44c-41df-8446-5e18508e4805')
+    .then(response => response.json())
+    .then(data => console.log(data));
+}
+language();
+
+// Function for saving words to local storage
+function storeWord(word) {
+  let data = localStorage.getItem("words");
+  if (data === null ) {
+    data = [word];
+  } else {
+    data = JSON.parse(data);
+    data.push(word);
+  }
+  localStorage.setItem("words", JSON.stringify(data));
+}
+
+// Function for clearing storage
+function clearStorage(){ 
+  localStorage.clear()
+}
+
+// Returns last word that was saved in local storage
+function getLastWord() {
+  let data = localStorage.getItem("words");
+  if (data === null) {
+    return null;
+  } 
+  data = JSON.parse(data);
+  return data[data.length - 1];
+}
+
+document.getElementById("resetButton").addEventListener("click", clearStorage);
