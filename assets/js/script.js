@@ -9,12 +9,11 @@ function definition(){
 }
 definition();
 
+apiKey='246175eb-f44c-41df-8446-5e18508e4805';
 
-
-
-function language(){
-    fetch('https://www.dictionaryapi.com/api/v3/references/spanish/json/language?key=https://dictionaryapi.com/account/example?key=246175eb-f44c-41df-8446-5e18508e4805')
-    .then(response => response.json())
+function language(spanish){
+    var queryURL='https://www.dictionaryapi.com/api/v3/references/spanish/json/language?key=' + apiKey;
+    fetch(queryURL).then(response => response.json())
     .then(data => console.log(data));
 }
 language();
