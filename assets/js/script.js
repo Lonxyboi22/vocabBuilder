@@ -13,4 +13,9 @@ function language(){
     .then(response => response.json())
     .then(data => console.log(data));
 }
+
+var randomWord = function(){
+    return suggestedWords[Math.round(Math.random()*suggestedWords.length)];
+};
+
 language();
