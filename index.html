@@ -8,29 +8,41 @@
     <title>Vocab Builder</title>
 </head>
 <body>
-    <header>
-        <button>My Words</button>
-        <h1>Vocab Builder</h1>
-        <button id="resetButton">Reset</button>
-    </header>
-        <input id="word" type="text" placeholder="Search.." name="search">
-    <button id="btn-submit" type="submit">Submit</button>
+    <header class="navbar is-family-code" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <h1 class="navbar-item">Vocab Builder</h1>
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a class="button is-primary">
+                            My Words
+                        </a>
+                        <a class="button is-light">
+                            Clear All
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+           
 
-    <div class="columns">
-        <div class="column">
-            First column
         </div>
-        <div class="column">
-            second column
+
+    </header>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns is-mobile is-centered">
+                <div class="column is-half has-background-success-light">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, voluptatibus ullam consequatur aperiam vitae nihil porro nulla reiciendis placeat doloribus distinctio assumenda, voluptas consequuntur ab in magnam cumque officiis sapiente?
+                    <div class="control">
+                        <input class="input" type="text" placeholder="Type the words you would like to learn about here.">
+                        <button type="submit">Submit</button>
+                    </div>
+                </div> 
+            </div>
         </div>
-        <div class="column">
-            third column
-        </div>
-        <div class="column">
-            fourth column
-        </div>
-       
-    </div>
+    </section>
 
     <script src="./assets/js/script.js"></script>
 </body>
