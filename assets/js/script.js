@@ -1,6 +1,5 @@
-
-
-const query = "fruit";
+const query = document.getElementById("#word");
+const wordSubmit = document.getElementById("#btn-submit")
 
 function definition(){
     fetch('https://api.dictionaryapi.dev/api/v2/entries/en/'+ query)
