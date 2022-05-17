@@ -1,26 +1,27 @@
 const query = document.getElementById("#word");
-const wordSubmit = document.getElementById("#btn-submit")
-var word = "pineapple";
 
+//generates random word:
+var word = suggestedWords[Math.round(Math.random()*suggestedWords.length)];;
+
+//this function uses the api to grab the dictionary definition of the word:
 function definition(word){
-    fetch('https://api.dictionaryapi.dev/api/v2/entries/en/'+ word)
-    .then(function(response){
+    const dictionaryapi = 'https://api.dictionaryapi.dev/api/v2/entries/en/' + word;
+    fetch(dictionaryapi).then(function(response){
         if(response.ok){
             response.json().then(function(data){
                 displayWords(data[0].meanings[0].definitions[0]);
             });
-        } else {
+         } else {
             alert("Error" + response.statusText);
         }
     })
 }
-definition(word);
 
+//this function displays the english word under the button:
 function displayWords(data){
-    console.log(data.definition);
-   // document.getElementById("").innerHTML = data.definition;
+    // console.log(data.definition);
+    document.getElementById("word-list").innerHTML = word + ": " + data.definition;
 }
-
 
 // function getSpanish(<englishWors as string>)
 // function requires an argument be passed to it
@@ -41,9 +42,9 @@ var getSpanish = function (englishWord){
 
 }
 
-var randomWord = function(){
-    return suggestedWords[Math.round(Math.random()*suggestedWords.length)];
-};
+// var randomWord = function(){
+//     console.log(suggestedWords[Math.round(Math.random()*suggestedWords.length)]);
+// };
 
 getSpanish();
 
@@ -77,3 +78,9 @@ function getLastWord() {
 
 // event listeners
 document.getElementById("resetButton").addEventListener("click", clearStorage);
+
+//runs the definition function and displayword function:
+document.getElementById("get-word").addEventListener("click", function(){
+  storeWord(word);
+  definition(word);
+  }) 
