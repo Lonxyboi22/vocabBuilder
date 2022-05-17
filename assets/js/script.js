@@ -81,5 +81,6 @@ document.getElementById("resetButton").addEventListener("click", clearStorage);
 
 //runs the definition function and displayword function:
 document.getElementById("get-word").addEventListener("click", function(){
-    definition(word);
-}) 
+  storeWord(word);
+  definition(word);
+  }) 
