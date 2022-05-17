@@ -8,20 +8,32 @@ function definition(){
 }
 definition();
 
+
+// function getSpanish(<englishWors as string>)
+// function requires an argument be passed to it
+// function sets teh global variable "spanishWord" wqual to the first work in the
+// 'shorddf' of the translation
 apiKey='246175eb-f44c-41df-8446-5e18508e4805';
-spanishWord= "bananas";
-function language(spanish){
-    var queryURL='https://www.dictionaryapi.com/api/v3/references/spanish/json/' + spanishWord + '?key=' + apiKey;
+// englishWord= "bananas";
+spanishWord = ""
+var getSpanish = function (englishWord){
+
+    var queryURL='https://www.dictionaryapi.com/api/v3/references/spanish/json/' + englishWord + '?key=' + apiKey;
     fetch(queryURL).then(response => response.json())
-    .then(data => console.log(data));
+    .then(data => {
+        // console.log(data[0].shortdef.toString());
+        spanishWord = data[0].shortdef.toString().split(',')[0];
+    });
+
+
 }
 
 var randomWord = function(){
     return suggestedWords[Math.round(Math.random()*suggestedWords.length)];
 };
 
-language();
-language();
+getSpanish();
+
 
 // Function for saving words to local storage
 function storeWord(word) {
@@ -50,4 +62,6 @@ function getLastWord() {
   return data[data.length - 1];
 }
 
+
+// event listeners
 document.getElementById("resetButton").addEventListener("click", clearStorage);
