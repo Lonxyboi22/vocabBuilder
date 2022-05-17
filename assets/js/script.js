@@ -9,11 +9,14 @@ function definition(){
 definition();
 
 apiKey='246175eb-f44c-41df-8446-5e18508e4805';
-spanishWord= "bananas";
+englishWord= "bananas";
+
 function language(spanish){
-    var queryURL='https://www.dictionaryapi.com/api/v3/references/spanish/json/' + spanishWord + '?key=' + apiKey;
+    var queryURL='https://www.dictionaryapi.com/api/v3/references/spanish/json/' + englishWord + '?key=' + apiKey;
     fetch(queryURL).then(response => response.json())
-    .then(data => console.log(data));
+    .then(data => {
+        console.log(data[0].shortdef[0]``);
+    });
 }
 
 var randomWord = function(){
@@ -21,7 +24,7 @@ var randomWord = function(){
 };
 
 language();
-language();
+
 
 // Function for saving words to local storage
 function storeWord(word) {
