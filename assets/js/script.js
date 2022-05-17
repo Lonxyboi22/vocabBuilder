@@ -1,12 +1,25 @@
 const query = document.getElementById("#word");
 const wordSubmit = document.getElementById("#btn-submit")
+var word = "pineapple";
 
-function definition(){
-    fetch('https://api.dictionaryapi.dev/api/v2/entries/en/'+ query)
-    .then(response => response.json())
-    .then(data => console.log(data));
+function definition(word){
+    fetch('https://api.dictionaryapi.dev/api/v2/entries/en/'+ word)
+    .then(function(response){
+        if(response.ok){
+            response.json().then(function(data){
+                displayWords(data[0].meanings[0].definitions[0]);
+            });
+        } else {
+            alert("Error" + response.statusText);
+        }
+    })
 }
-definition();
+definition(word);
+
+function displayWords(data){
+    console.log(data.definition);
+   // document.getElementById("").innerHTML = data.definition;
+}
 
 
 // function getSpanish(<englishWors as string>)
@@ -33,7 +46,6 @@ var randomWord = function(){
 };
 
 getSpanish();
-
 
 // Function for saving words to local storage
 function storeWord(word) {
