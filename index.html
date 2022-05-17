@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma-rtl.min.css"/>
+    <link rel="stylesheet" href="./assets/style.css"/>
+
     <title>Vocab Builder</title>
 </head>
 <body>
@@ -53,7 +55,7 @@
                         <button id="get-word" class="button is-primary is-large is-fullwidth is-rounded" type="submit">Get My Word</button>
                     </div>
                     <ul id="myUL">
-                        <li id="word-list"></li>
+                        <!-- <li id="word-list"></li> -->
                     </ul>
                 </div> 
             </div>
@@ -64,17 +66,12 @@
 
     </section>
 
-    <section>
+    <section id="word-display">
         <div>
-            <ul id="definitions">
-
-            </ul>
-            <ul id="synonyms">
-
-            </ul>
-            <ul id="spanish">
-                
-            </ul>
+            <ul id="definitions">Definitions</ul>
+        </div>
+        <div>
+            <ul id="spanish">Spanish</ul>
         </div>
     </section>
     <script src="./assets/js/words-list.js"></script>
