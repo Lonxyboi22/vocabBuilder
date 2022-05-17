@@ -10,12 +10,13 @@ definition();
 
 apiKey='246175eb-f44c-41df-8446-5e18508e4805';
 englishWord= "bananas";
-
-function language(spanish){
+spanishWord = ""
+var getSpanish = function (spanish){
     var queryURL='https://www.dictionaryapi.com/api/v3/references/spanish/json/' + englishWord + '?key=' + apiKey;
     fetch(queryURL).then(response => response.json())
     .then(data => {
-        console.log(data[0].shortdef[0]``);
+        // console.log(data[0].shortdef.toString());
+        spanishWord = data[0].shortdef.toString();
     });
 }
 
@@ -23,7 +24,7 @@ var randomWord = function(){
     return suggestedWords[Math.round(Math.random()*suggestedWords.length)];
 };
 
-language();
+getSpanish();
 
 
 // Function for saving words to local storage
@@ -53,4 +54,6 @@ function getLastWord() {
   return data[data.length - 1];
 }
 
+
+// event listeners
 document.getElementById("resetButton").addEventListener("click", clearStorage);
