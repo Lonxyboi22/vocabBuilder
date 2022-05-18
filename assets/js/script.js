@@ -8,7 +8,6 @@ var theWord=document.getElementById("addToMyWords");
 
 //generates random word:
 //var word = suggestedWords[Math.round(Math.random()*suggestedWords.length)];
-var word="";
 
 //this function uses the api to grab the dictionary definition of the word:
 function definition(word){
@@ -68,10 +67,7 @@ function displayWords(word){
   defLi.innerHTML = definition;
   defE1.appendChild(defLi);
 
-  var spanishLi = document.createElement("li");
-  spanishLi.innerHTML = spanishWord;
-  spanishE1.appendChild(spanishLi);
-
+  getSpanish(word);
 }
 
 // function getSpanish(<englishWors as string>)
@@ -86,8 +82,16 @@ var getSpanish = function (englishWord){
     fetch(queryURL).then(function(response){
         if(response.ok){
             response.json().then(function(data){
-                spanishWord = data[0].shortdef.toString().split(',')[0];
-                console.log(englishWord," = ", spanishWord)
+              console.log(data);
+                const spanishLi = document.createElement("li");
+                let spanishWord = '';
+                if (data[0].shortdef) {
+                  spanishWord = data[0].shortdef.toString().split(',')[0];
+                } else {
+                  spanishWord = data[0];
+                }
+                spanishLi.innerHTML = spanishWord;
+                spanishE1.appendChild(spanishLi);
             });
         } else {
            alert(englishWord, "is missing");
@@ -98,7 +102,7 @@ var getSpanish = function (englishWord){
 
 
  var randomWord = function(){
-   word = suggestedWords[Math.round(Math.random()*suggestedWords.length)];
+   return suggestedWords[Math.round(Math.random()*suggestedWords.length)];
  };
 
 
@@ -129,6 +133,15 @@ function getLastWord(key) {
   return data[data.length - 1];
 }
 
+function getAllWords(key) {
+  let data = localStorage.getItem(key);
+  if (data === null) {
+    return [];
+  }
+  data = JSON.parse(data);
+  return data;
+}
+
 // var wordClick = function (event) {
 //     event.preventDefault();
 //     console.log("you gotta click...");
@@ -142,10 +155,14 @@ document.getElementById("resetButton").addEventListener("click", function() {
 
 //runs the definition function and displayword function:
 document.getElementById("get-word").addEventListener("click", function(){
-  randomWord();
+  const word = randomWord();
   storeWord(word, "words");
   definition(word);
-  getSpanish(word);
-}) 
+});
+
+function delay(time) {
+  return new Promise(resolve => setTimeout(resolve, time));
+}
+
 
 //wordListEl.addEventListener("click", wordClick); 
