@@ -56,7 +56,9 @@ function displayWords(word){
   myWordLi.innerHTML = "<i class='fa-solid fa-plus button is-small is-primary is-rounded' id='addToMyWords'></i>" + word + "<br>";
   wordListEl.appendChild(myWordLi);
   
+// function to click '+' which adds to MyStoreWords array to print out on My Words
 function addWordsStore(word){
+    myStoredWords=[]
     document.getElementById("addToMyWords").addEventListener("click", function() {
     console.log("junk");
   });
