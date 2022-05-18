@@ -52,7 +52,7 @@ function displayWords(word){
   // document.getElementById("word-list").innerHTML = word + ": " + data.definition;
 
   var myWordLi = document.createElement("li");
-  myWordLi.innerHTML = "<i class='fa-solid fa-plus button is-small is-primary is-rounded'></i>" + word + "<br>";
+  myWordLi.innerHTML = "<i class='fa-solid fa-plus button is-small is-primary is-rounded' id='storeWord'></i>" + word + "<br>";
   wordListEl.appendChild(myWordLi);
   
   var defLi = document.createElement("li");
@@ -136,6 +136,12 @@ document.getElementById("get-word").addEventListener("click", function(){
     window.location = "./mywords.html";
   })
 
+  //Back button is broken.
   document.getElementById("go-back").addEventListener("click", function(){
     window.location = "./index.html";
+  })
+
+  //storeWord button not working
+  document.getElementById("storeWord").addEventListener("click", function(){
+    window.location= "./mywords.hmtml";
   })
