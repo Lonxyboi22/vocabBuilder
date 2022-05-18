@@ -24,8 +24,7 @@ function definition(word){
          } else {
             alert("Error" + response.statusText);
         }
-    })
-
+    });
 }
 
 //this function displays the english word under the button:
@@ -54,19 +53,14 @@ function displayWords(word){
 
   var myWordLi = document.createElement("li");
   //myWordLi.setAttribute("id", "addToMyWords");
-  myWordLi.innerHTML = "<i class='fa-solid fa-plus button is-small is-primary is-rounded' id='addToMyWords'></i>" + word + "<br>";
+  const plusButtonId = "plusButtonWord" + wordListEl.childElementCount;
+  myWordLi.innerHTML = "<i class='fa-solid fa-plus button is-small is-primary is-rounded' id='" + plusButtonId + "'></i>" + word + "<br>";
   wordListEl.appendChild(myWordLi);
   
 // function to click '+' which adds to MyStoreWords array to print out on My Words
-function addWordsStore(word){
-    myStoredWords=[];
-    document.getElementById("addToMyWords").addEventListener("click", function() {
-    myStoredWords.push(word);
-    console.log(word);
-    console.log(myStoredWords);
+  document.getElementById(plusButtonId).addEventListener("click", function() {
+    storeWord(word, "selectedWords");
   });
-}
-addWordsStore(word);
 
   
   var defLi = document.createElement("li");
@@ -109,15 +103,15 @@ var getSpanish = function (englishWord){
 
 
 // Function for saving words to local storage
-function storeWord(word) {
-  let data = localStorage.getItem("words");
+function storeWord(word, key) {
+  let data = localStorage.getItem(key);
   if (data === null ) {
     data = [word];
   } else {
     data = JSON.parse(data);
     data.push(word);
   }
-  localStorage.setItem("words", JSON.stringify(data));
+  localStorage.setItem(key, JSON.stringify(data));
 }
 
 // Function for clearing storage
@@ -126,8 +120,8 @@ function clearStorage(){
 }
 
 // Returns last word that was saved in local storage
-function getLastWord() {
-  let data = localStorage.getItem("words");
+function getLastWord(key) {
+  let data = localStorage.getItem(key);
   if (data === null) {
     return null;
   } 
@@ -149,7 +143,7 @@ document.getElementById("resetButton").addEventListener("click", function() {
 //runs the definition function and displayword function:
 document.getElementById("get-word").addEventListener("click", function(){
   randomWord();
-  storeWord(word);
+  storeWord(word, "words");
   definition(word);
   getSpanish(word);
 }) 
