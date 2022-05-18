@@ -125,6 +125,10 @@ function getLastWord() {
   return data[data.length - 1];
 }
 
+var wordClick = function (event) {
+    event.preventDefault();
+    console.log("you gotta click...");
+};
 
 // event listeners
 document.getElementById("resetButton").addEventListener("click", function() {
@@ -140,3 +144,4 @@ document.getElementById("get-word").addEventListener("click", function(){
   getSpanish(word);
 }) 
 
+wordListEl.addEventListener("click", wordClick); 
