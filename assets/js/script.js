@@ -52,7 +52,6 @@ function addWordsStore(theWord){
     myStoredWords=[];
     document.getElementById("addToMyWords").addEventListener("click", function() {
     myStoredWords.push(word);
-    console.log("junk");
     console.log(myStoredWords);
   });
 }
@@ -89,8 +88,8 @@ var getSpanish = function (englishWord){
     var queryURL='https://www.dictionaryapi.com/api/v3/references/spanish/json/' + englishWord + '?key=' + apiKey;
     fetch(queryURL).then(response => response.json())
     .then(data => {
-         console.log(data[0].shortdef.toString());
-        spanishWord = "" + data[0].shortdef.toString().split(',')[0];
+        //console.log(data[0].shortdef[0]);
+        spanishWord = data[0].shortdef[0];
         
     });
 }
