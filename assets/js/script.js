@@ -43,11 +43,11 @@ function displayWords(word){
   var defLi = document.createElement("li");
   var definition = "" + wordDef.definitions[0].definition;
   defLi.innerHTML = definition;
-  defEl.appendChild(defLi);
+  defE1.appendChild(defLi);
 
   var spanishLi = document.createElement("li");
   spanishLi.innerHTML = spanishWord;
-  spanishEl.appendChild(spanishLi);
+  spanishE1.appendChild(spanishLi);
 
 }
 
@@ -105,7 +105,11 @@ function getLastWord() {
 
 
 // event listeners
-document.getElementById("resetButton").addEventListener("click", clearStorage);
+document.getElementById("resetButton").addEventListener("click", function() {
+  clearStorage();
+  window.location.reload();
+});
+
 
 //runs the definition function and displayword function:
 document.getElementById("get-word").addEventListener("click", function(){
