@@ -52,7 +52,7 @@ function displayWords(word){
   // document.getElementById("word-list").innerHTML = word + ": " + data.definition;
 
   var myWordLi = document.createElement("li");
-  myWordLi.innerHTML = "<i class='fa-solid fa-plus button is-small is-primary is-rounded' id='store-word'></i>" + word + "<br>";
+  myWordLi.innerHTML = "<a href='mywords.html'><i class='fa-solid fa-plus button is-small is-primary is-rounded' id='store-word'></i></a>" + word + "<br>";
   wordListEl.appendChild(myWordLi);
   
   var defLi = document.createElement("li");
@@ -131,17 +131,3 @@ document.getElementById("get-word").addEventListener("click", function(){
   definition(word);
   getSpanish(word);
   }) 
-
-  document.getElementById("my-words").addEventListener("click", function(){
-    window.location = "./mywords.html";
-  })
-
-  //Back button is broken.
-  document.getElementById("go-back").addEventListener("click", function(){
-    window.location = "./index.html";
-  })
-
-  //storeWord button broken.
-  document.getElementById("store-word").addEventListener("click", function(){
-    window.location= "./mywords.html";
-  })
