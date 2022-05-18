@@ -61,7 +61,7 @@ function displayWords(word){
 function addWordsStore(theWord){
     myStoredWords=[];
     document.getElementById("addToMyWords").addEventListener("click", function() {
-    myStoredWords+=theWord;
+    myStoredWords.push(word);
     console.log("junk");
     console.log(myStoredWords);
   });
@@ -85,7 +85,6 @@ addWordsStore();
 // function sets teh global variable "spanishWord" wqual to the first work in the
 // 'shorddf' of the translation
 // englishWord= "bananas";
-spanishWord = ""
 var getSpanish = function (englishWord){
     apiKey='246175eb-f44c-41df-8446-5e18508e4805';
 
