@@ -52,9 +52,12 @@ function displayWords(word){
   // document.getElementById("word-list").innerHTML = word + ": " + data.definition;
 
   var myWordLi = document.createElement("li");
-  myWordLi.setAttribute("id", "addToMyWords");
-  myWordLi.innerHTML = "<i class='fa-solid fa-plus button is-small is-primary is-rounded'></i>" + word + "<br>";
+  //myWordLi.setAttribute("id", "addToMyWords");
+  myWordLi.innerHTML = "<i class='fa-solid fa-plus button is-small is-primary is-rounded' id='addToMyWords'></i>" + word + "<br>";
   wordListEl.appendChild(myWordLi);
+  document.getElementById("addToMyWords").addEventListener("click", function() {
+    console.log("Junk");
+  });
   
   var defLi = document.createElement("li");
   var definition = "" + wordDef.definitions[0].definition;
@@ -117,13 +120,6 @@ function getLastWord() {
   return data[data.length - 1];
 }
 
-function storedWords() {
-  var myStoredWords=[];
-  document.getElementById("addToMyWords").addEventListener("click", function() {
-    console.log(myStoredWords);
-  })
-  storedWords();
-}
 
 // event listeners
 document.getElementById("resetButton").addEventListener("click", function() {
@@ -137,4 +133,5 @@ document.getElementById("get-word").addEventListener("click", function(){
   storeWord(word);
   definition(word);
   getSpanish(word);
-  }) 
+}) 
+
