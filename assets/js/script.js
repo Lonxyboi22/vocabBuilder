@@ -52,7 +52,8 @@ function displayWords(word){
   // document.getElementById("word-list").innerHTML = word + ": " + data.definition;
 
   var myWordLi = document.createElement("li");
-  myWordLi.innerHTML = "<a href='mywords.html'><i class='fa-solid fa-plus button is-small is-primary is-rounded' id='store-word'></i></a>" + word + "<br>";
+  myWordLi.setAttribute("id", "storingWord");
+  myWordLi.innerHTML = "<i class='fa-solid fa-plus button is-small is-primary is-rounded'></i>" + word + "<br>";
   wordListEl.appendChild(myWordLi);
   
   var defLi = document.createElement("li");
@@ -116,13 +117,19 @@ function getLastWord() {
   return data[data.length - 1];
 }
 
+function storedWords() {
+  var myStoredWords=[];
+  document.getElementById("storingWord").addEventListener("click", function() {
+    console.log(myStoredWords);
+  })
+  storedWords();
+}
 
 // event listeners
 document.getElementById("resetButton").addEventListener("click", function() {
   clearStorage();
   window.location.reload();
 });
-
 
 //runs the definition function and displayword function:
 document.getElementById("get-word").addEventListener("click", function(){
