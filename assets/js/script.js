@@ -52,7 +52,7 @@ function displayWords(word){
   // document.getElementById("word-list").innerHTML = word + ": " + data.definition;
 
   var myWordLi = document.createElement("li");
-  myWordLi.innerHTML = word;
+  myWordLi.innerHTML = "<i class='fa-solid fa-plus button is-small is-primary is-rounded'></i>" + word + "<br>";
   wordListEl.appendChild(myWordLi);
   
   var defLi = document.createElement("li");
