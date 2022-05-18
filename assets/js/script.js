@@ -1,7 +1,8 @@
 const query = document.getElementById("#word");
-
+var wordListEl = document.getElementById("myUL");
+var spanishEl = document.getElementById("spanish");
 //generates random word:
-var word = suggestedWords[Math.round(Math.random()*suggestedWords.length)];;
+//var word = suggestedWords[Math.round(Math.random()*suggestedWords.length)];;
 
 //this function uses the api to grab the dictionary definition of the word:
 function definition(word){
@@ -15,12 +16,22 @@ function definition(word){
             alert("Error" + response.statusText);
         }
     })
+
 }
 
 //this function displays the english word under the button:
 function displayWords(data){
     // console.log(data.definition);
-    document.getElementById("word-list").innerHTML = word + ": " + data.definition;
+    //document.getElementById("word-list").innerHTML = word + ": " + data.definition;
+
+    var defList = document.createElement("li");
+    defList.innerHTML = word + ": " + data.definition;
+    console.log(defList);
+    wordListEl.appendChild(defList);
+
+    var spanList = document.createElement("li");
+    spanList.innerHTML = word + "/" + spanishWord;
+    spanishEl.appendChild(spanList);
 }
 
 // function getSpanish(<englishWors as string>)
@@ -31,22 +42,19 @@ apiKey='246175eb-f44c-41df-8446-5e18508e4805';
 // englishWord= "bananas";
 spanishWord = ""
 var getSpanish = function (englishWord){
-
     var queryURL='https://www.dictionaryapi.com/api/v3/references/spanish/json/' + englishWord + '?key=' + apiKey;
     fetch(queryURL).then(response => response.json())
     .then(data => {
         // console.log(data[0].shortdef.toString());
         spanishWord = data[0].shortdef.toString().split(',')[0];
     });
-
-
 }
 
-// var randomWord = function(){
-//     console.log(suggestedWords[Math.round(Math.random()*suggestedWords.length)]);
-// };
+var randomWord = function(){
+    word = suggestedWords[Math.round(Math.random()*suggestedWords.length)];
+};
 
-getSpanish();
+
 
 // Function for saving words to local storage
 function storeWord(word) {
@@ -81,6 +89,8 @@ document.getElementById("resetButton").addEventListener("click", clearStorage);
 
 //runs the definition function and displayword function:
 document.getElementById("get-word").addEventListener("click", function(){
-  storeWord(word);
-  definition(word);
+    randomWord();
+    storeWord(word);
+    definition(word);
+//     getSpanish(word);
   }) 
