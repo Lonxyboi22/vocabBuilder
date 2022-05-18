@@ -47,6 +47,15 @@ function definition(word){
 //     // console.log(data.definition);
 //     document.getElementById("word-list").innerHTML = word + ": " + data.definition;
 // }
+// function to click '+' which adds to MyStoreWords array to print out on My Words
+function addWordsStore(theWord){
+    myStoredWords=[];
+    document.getElementById("addToMyWords").addEventListener("click", function() {
+    myStoredWords.push(word);
+    console.log("junk");
+    console.log(myStoredWords);
+  });
+}
 
 function displayWords(word){
    //console.log(data.definition);
@@ -57,18 +66,6 @@ function displayWords(word){
   myWordLi.innerHTML = "<i class='fa-solid fa-plus button is-small is-primary is-rounded' id='addToMyWords'></i>" + word + "<br>";
   wordListEl.appendChild(myWordLi);
   
-// function to click '+' which adds to MyStoreWords array to print out on My Words
-function addWordsStore(theWord){
-    myStoredWords=[];
-    document.getElementById("addToMyWords").addEventListener("click", function() {
-    myStoredWords.push(word);
-    console.log("junk");
-    console.log(myStoredWords);
-  });
-}
-addWordsStore();
-
-  
   var defLi = document.createElement("li");
   var definition = "" + wordDef.definitions[0].definition;
   defLi.innerHTML = definition;
@@ -78,6 +75,7 @@ addWordsStore();
   spanishLi.innerHTML = spanishWord;
   spanishE1.appendChild(spanishLi);
 
+addWordsStore(); 
 }
 
 // function getSpanish(<englishWors as string>)
@@ -148,4 +146,4 @@ document.getElementById("get-word").addEventListener("click", function(){
   getSpanish(word);
 }) 
 
-wordListEl.addEventListener("click", wordClick); 
+// wordListEl.addEventListener("click", wordClick); 
