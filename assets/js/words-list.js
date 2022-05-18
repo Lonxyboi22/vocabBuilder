@@ -89,7 +89,7 @@ const suggestedWords = [
   "anthology",
   "anthropology",
   "antinomy",
-  "antiquarianism",
+  // "antiquarianism",
   "antiseptic",
   "aphorism",
   "aplomb",
