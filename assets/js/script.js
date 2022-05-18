@@ -78,7 +78,7 @@ var getSpanish = function (englishWord){
     var queryURL='https://www.dictionaryapi.com/api/v3/references/spanish/json/' + englishWord + '?key=' + apiKey;
     fetch(queryURL).then(response => response.json())
     .then(data => {
-        // console.log(data[0].shortdef.toString());
+         console.log(data[0].shortdef.toString());
         spanishWord = "" + data[0].shortdef.toString().split(',')[0];
         
     });
@@ -131,3 +131,11 @@ document.getElementById("get-word").addEventListener("click", function(){
   definition(word);
   getSpanish(word);
   }) 
+
+  document.getElementById("my-words").addEventListener("click", function(){
+    window.location = "./mywords.html";
+  })
+
+  document.getElementById("go-back").addEventListener("click", function(){
+    window.location = "./index.html";
+  })
