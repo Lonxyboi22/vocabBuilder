@@ -30,6 +30,29 @@ function definition(word){
 
 }
 
+spanishWord = ""
+var getSpanish = function (englishWord){
+    apiKey='246175eb-f44c-41df-8446-5e18508e4805';
+
+    var queryURL='https://www.dictionaryapi.com/api/v3/references/spanish/json/' + englishWord + '?key=' + apiKey;
+    fetch(queryURL).then(function(response){
+        if(response.ok){
+            response.json().then(function(data){
+                spanishWord = data[0].shortdef.toString().split(',')[0];
+                console.log(englishWord," = ", spanishWord)
+            });
+        } else {
+           alert(englishWord, "is missing");
+           wordIsMissing = true;
+        }
+    })
+}
+
+ var randomWord = function(){
+   word = suggestedWords[Math.round(Math.random()*suggestedWords.length)];
+ };
+
+ 
 //this function displays the english word under the button:
 //I JUST COMMENTED IT OUT SO CODE DIDNT BREAK, BUT WE CAN ADD THIS BACK IN :)
 // function displayWords(word){
@@ -74,24 +97,8 @@ function displayWords(word){
 // function sets teh global variable "spanishWord" wqual to the first work in the
 // 'shorddf' of the translation
 // englishWord= "bananas";
-spanishWord = ""
-var getSpanish = function (englishWord){
-    apiKey='246175eb-f44c-41df-8446-5e18508e4805';
 
-    var queryURL='https://www.dictionaryapi.com/api/v3/references/spanish/json/' + englishWord + '?key=' + apiKey;
-    fetch(queryURL).then(response => response.json())
-    .then(data => {
-        // console.log(data[0].shortdef.toString());
-        spanishWord = data[0].shortdef.toString().split(',')[0];
-        
-    });
-}
 
- var randomWord = function(){
-   word = suggestedWords[Math.round(Math.random()*suggestedWords.length)];
- };
-
-// getSpanish(); 
 
 // Function for saving words to local storage
 function storeWord(word) {
@@ -133,6 +140,23 @@ var wordInDictionary = function (){
             missingWordList.push(suggestedWords[j]);
             wordIsMissing = false;
             console.log(gestedWords[j]);
+        }
+    }
+    console.log("finished word check");
+    console.log(missingWordList.length, "errors found");
+};
+var checkTranslation = function(){
+    var wordIsMissing = false;
+    let i = 0;
+    let start = 0;
+    for (j=start+0; j<suggestedWords.length; j++){
+            getSpanish(suggestedWords[j]);
+
+        if(wordIsMissing){
+            debugger
+            missingWordList.push(suggestedWords[j]);
+            wordIsMissing = false;
+            // console.log(suggestedWords[j]);
         }
     }
     console.log("finished word check");
