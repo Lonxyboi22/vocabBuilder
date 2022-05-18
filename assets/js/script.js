@@ -4,6 +4,7 @@ var wordListEl=document.getElementById("myUL");
 var defE1 = document.getElementById("myDEF");
 var spanishE1 = document.getElementById("mySPANISH");
 var wordDef = {};
+var theWord=document.getElementById("addToMyWords");
 
 //generates random word:
 //var word = suggestedWords[Math.round(Math.random()*suggestedWords.length)];
@@ -57,10 +58,12 @@ function displayWords(word){
   wordListEl.appendChild(myWordLi);
   
 // function to click '+' which adds to MyStoreWords array to print out on My Words
-function addWordsStore(word){
-    myStoredWords=[]
+function addWordsStore(theWord){
+    myStoredWords=[];
     document.getElementById("addToMyWords").addEventListener("click", function() {
+    myStoredWords+=theWord;
     console.log("junk");
+    console.log(myStoredWords);
   });
 }
 addWordsStore();
@@ -127,10 +130,10 @@ function getLastWord() {
   return data[data.length - 1];
 }
 
-var wordClick = function (event) {
-    event.preventDefault();
-    console.log("you gotta click...");
-};
+// var wordClick = function (event) {
+//     event.preventDefault();
+//     console.log("you gotta click...");
+// };
 
 // event listeners
 document.getElementById("resetButton").addEventListener("click", function() {
