@@ -65,8 +65,6 @@ function displayWords(word){
   myWordLi.innerHTML = "<i class='fa-solid fa-plus button is-small is-primary is-rounded' id='addToMyWords'></i>" + word + "<br>";
   wordListEl.appendChild(myWordLi);
   
-<<<<<<< HEAD
-=======
 // function to click '+' which adds to MyStoreWords array to print out on My Words
 function addWordsStore(word){
     myStoredWords=[];
@@ -79,7 +77,6 @@ function addWordsStore(word){
 addWordsStore(word);
 
   
->>>>>>> 4548173548cc367654025c698e9ae4fc3dbdcb1a
   var defLi = document.createElement("li");
   var definition = "" + wordDef.definitions[0].definition;
   defLi.innerHTML = definition;
