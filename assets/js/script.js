@@ -65,6 +65,21 @@ function displayWords(word){
   myWordLi.innerHTML = "<i class='fa-solid fa-plus button is-small is-primary is-rounded' id='addToMyWords'></i>" + word + "<br>";
   wordListEl.appendChild(myWordLi);
   
+<<<<<<< HEAD
+=======
+// function to click '+' which adds to MyStoreWords array to print out on My Words
+function addWordsStore(word){
+    myStoredWords=[];
+    document.getElementById("addToMyWords").addEventListener("click", function() {
+    myStoredWords.push(word);
+    console.log(word);
+    console.log(myStoredWords);
+  });
+}
+addWordsStore(word);
+
+  
+>>>>>>> 4548173548cc367654025c698e9ae4fc3dbdcb1a
   var defLi = document.createElement("li");
   var definition = "" + wordDef.definitions[0].definition;
   defLi.innerHTML = definition;
@@ -86,13 +101,20 @@ var getSpanish = function (englishWord){
     apiKey='246175eb-f44c-41df-8446-5e18508e4805';
 
     var queryURL='https://www.dictionaryapi.com/api/v3/references/spanish/json/' + englishWord + '?key=' + apiKey;
-    fetch(queryURL).then(response => response.json())
-    .then(data => {
-        //console.log(data[0].shortdef[0]);
-        spanishWord = data[0].shortdef[0];
-        
-    });
+    
+    fetch(queryURL).then(function(response){
+        if(response.ok){
+            response.json().then(function(data){
+              spanishWord = data[0].shortdef[0];
+                console.log(englishWord," = ", spanishWord)
+            });
+        } else {
+           alert(englishWord, "is missing");
+           wordIsMissing = true;
+        }
+    })
 }
+
 
  var randomWord = function(){
    word = suggestedWords[Math.round(Math.random()*suggestedWords.length)];
@@ -145,4 +167,8 @@ document.getElementById("get-word").addEventListener("click", function(){
   getSpanish(word);
 }) 
 
+<<<<<<< HEAD
 // wordListEl.addEventListener("click", wordClick); 
+=======
+//wordListEl.addEventListener("click", wordClick); 
+>>>>>>> 4548173548cc367654025c698e9ae4fc3dbdcb1a
