@@ -85,7 +85,10 @@ function getLastWord() {
 
 
 // event listeners
-document.getElementById("resetButton").addEventListener("click", clearStorage);
+document.getElementById("resetButton").addEventListener("click", function() {
+  clearStorage();
+  window.location.reload();
+});
 
 //runs the definition function and displayword function:
 document.getElementById("get-word").addEventListener("click", function(){
