@@ -1,14 +1,8 @@
 const query = document.getElementById("#word");
-
-var defEl = document.getElementById("definitions");
-var spanishEl = document.getElementById("spanish");
 var wordListEl = document.getElementById("myUL");
-
-var wordDef = {};
-
+var spanishEl = document.getElementById("spanish");
 //generates random word:
-// var word = suggestedWords[Math.round(Math.random()*suggestedWords.length)];;
-var word = "";
+//var word = suggestedWords[Math.round(Math.random()*suggestedWords.length)];;
 
 //this function uses the api to grab the dictionary definition of the word:
 function definition(word){
@@ -25,27 +19,22 @@ function definition(word){
             alert("Error" + response.statusText);
         }
     })
+
 }
 
 //this function displays the english word under the button:
 function displayWords(word){
     // console.log(data.definition);
-    // document.getElementById("word-list").innerHTML = word + ": " + data.definition;
+    //document.getElementById("word-list").innerHTML = word + ": " + data.definition;
 
+    var defList = document.createElement("li");
+    defList.innerHTML = word + ": " + data.definition;
+    console.log(defList);
+    wordListEl.appendChild(defList);
 
-    var myWordLi = document.createElement("li");
-    myWordLi.innerHTML = word;
-    wordListEl.appendChild(myWordLi);
-    
-    var defLi = document.createElement("li");
-    var definition = "" + wordDef.definitions[0].definition;
-    defLi.innerHTML = definition;
-    defEl.appendChild(defLi);
-
-    var spanishLi = document.createElement("li");
-    spanishLi.innerHTML = spanishWord;
-    spanishEl.appendChild(spanishLi);
-
+    var spanList = document.createElement("li");
+    spanList.innerHTML = word + "/" + spanishWord;
+    spanishEl.appendChild(spanList);
 }
 
 // function getSpanish(<englishWors as string>)
@@ -56,8 +45,6 @@ function displayWords(word){
 // englishWord= "bananas";
 spanishWord = ""
 var getSpanish = function (englishWord){
-    apiKey='246175eb-f44c-41df-8446-5e18508e4805';
-    
     var queryURL='https://www.dictionaryapi.com/api/v3/references/spanish/json/' + englishWord + '?key=' + apiKey;
     fetch(queryURL).then(response => response.json())
     .then(data => {
@@ -65,15 +52,12 @@ var getSpanish = function (englishWord){
         spanishWord = "" + data[0].shortdef.toString().split(',')[0];
         
     });
-
-
 }
 
 var randomWord = function(){
     word = suggestedWords[Math.round(Math.random()*suggestedWords.length)];
 };
 
-getSpanish();
 
 // Function for saving words to local storage
 function storeWord(word) {
@@ -111,8 +95,8 @@ document.getElementById("resetButton").addEventListener("click", function() {
 
 //runs the definition function and displayword function:
 document.getElementById("get-word").addEventListener("click", function(){
-   randomWord();
-  storeWord(word);
-  getSpanish(word);
-  definition(word);
+    randomWord();
+    storeWord(word);
+    definition(word);
+//     getSpanish(word);
   }) 
