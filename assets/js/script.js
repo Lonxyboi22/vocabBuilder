@@ -52,7 +52,7 @@ function displayWords(word){
   // document.getElementById("word-list").innerHTML = word + ": " + data.definition;
 
   var myWordLi = document.createElement("li");
-  myWordLi.setAttribute("id", "storingWord");
+  myWordLi.setAttribute("id", "addToMyWords");
   myWordLi.innerHTML = "<i class='fa-solid fa-plus button is-small is-primary is-rounded'></i>" + word + "<br>";
   wordListEl.appendChild(myWordLi);
   
@@ -119,7 +119,7 @@ function getLastWord() {
 
 function storedWords() {
   var myStoredWords=[];
-  document.getElementById("storingWord").addEventListener("click", function() {
+  document.getElementById("addToMyWords").addEventListener("click", function() {
     console.log(myStoredWords);
   })
   storedWords();
