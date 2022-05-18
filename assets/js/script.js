@@ -55,9 +55,14 @@ function displayWords(word){
   //myWordLi.setAttribute("id", "addToMyWords");
   myWordLi.innerHTML = "<i class='fa-solid fa-plus button is-small is-primary is-rounded' id='addToMyWords'></i>" + word + "<br>";
   wordListEl.appendChild(myWordLi);
-  document.getElementById("addToMyWords").addEventListener("click", function() {
-    console.log("Junk");
+  
+function addWordsStore(word){
+    document.getElementById("addToMyWords").addEventListener("click", function() {
+    console.log("junk");
   });
+}
+addWordsStore();
+
   
   var defLi = document.createElement("li");
   var definition = "" + wordDef.definitions[0].definition;
