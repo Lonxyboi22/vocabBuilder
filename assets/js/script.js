@@ -90,13 +90,19 @@ var getSpanish = function (englishWord){
     apiKey='246175eb-f44c-41df-8446-5e18508e4805';
 
     var queryURL='https://www.dictionaryapi.com/api/v3/references/spanish/json/' + englishWord + '?key=' + apiKey;
-    fetch(queryURL).then(response => response.json())
-    .then(data => {
-         console.log(data[0].shortdef.toString());
-        spanishWord = "" + data[0].shortdef.toString().split(',')[0];
-        
-    });
+    fetch(queryURL).then(function(response){
+        if(response.ok){
+            response.json().then(function(data){
+                spanishWord = data[0].shortdef.toString().split(',')[0];
+                console.log(englishWord," = ", spanishWord)
+            });
+        } else {
+           alert(englishWord, "is missing");
+           wordIsMissing = true;
+        }
+    })
 }
+
 
  var randomWord = function(){
    word = suggestedWords[Math.round(Math.random()*suggestedWords.length)];
