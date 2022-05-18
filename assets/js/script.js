@@ -9,6 +9,8 @@ var theWord=document.getElementById("addToMyWords");
 //generates random word:
 //var word = suggestedWords[Math.round(Math.random()*suggestedWords.length)];
 var word="";
+var spanishWord = "";
+
 
 //this function uses the api to grab the dictionary definition of the word:
 function definition(word){
@@ -86,7 +88,6 @@ addWordsStore(word);
   spanishLi.innerHTML = spanishWord;
   spanishE1.appendChild(spanishLi);
 
-addWordsStore(); 
 }
 
 // function getSpanish(<englishWors as string>)
@@ -94,7 +95,6 @@ addWordsStore();
 // function sets teh global variable "spanishWord" wqual to the first work in the
 // 'shorddf' of the translation
 // englishWord= "bananas";
-var spanishWord = "";
 var getSpanish = function (englishWord){
     apiKey='246175eb-f44c-41df-8446-5e18508e4805';
 
