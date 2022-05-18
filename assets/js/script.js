@@ -58,15 +58,15 @@ function displayWords(word){
   wordListEl.appendChild(myWordLi);
   
 // function to click '+' which adds to MyStoreWords array to print out on My Words
-function addWordsStore(theWord){
+function addWordsStore(word){
     myStoredWords=[];
     document.getElementById("addToMyWords").addEventListener("click", function() {
     myStoredWords.push(word);
-    console.log("junk");
+    console.log(word);
     console.log(myStoredWords);
   });
 }
-addWordsStore();
+addWordsStore(word);
 
   
   var defLi = document.createElement("li");
