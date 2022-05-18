@@ -154,4 +154,4 @@ document.getElementById("get-word").addEventListener("click", function(){
   getSpanish(word);
 }) 
 
-wordListEl.addEventListener("click", wordClick); 
+//wordListEl.addEventListener("click", wordClick); 
