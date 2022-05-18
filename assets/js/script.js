@@ -94,6 +94,7 @@ addWordsStore();
 // function sets teh global variable "spanishWord" wqual to the first work in the
 // 'shorddf' of the translation
 // englishWord= "bananas";
+var spanishWord = "";
 var getSpanish = function (englishWord){
     apiKey='246175eb-f44c-41df-8446-5e18508e4805';
 
@@ -164,8 +165,5 @@ document.getElementById("get-word").addEventListener("click", function(){
   getSpanish(word);
 }) 
 
-<<<<<<< HEAD
 // wordListEl.addEventListener("click", wordClick); 
-=======
 //wordListEl.addEventListener("click", wordClick); 
->>>>>>> 4548173548cc367654025c698e9ae4fc3dbdcb1a
