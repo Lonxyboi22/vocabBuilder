@@ -149,7 +149,8 @@ var checkTranslation = function(){
     var wordIsMissing = false;
     let i = 0;
     let start = 0;
-    for (j=start+0; j<suggestedWords.length; j++){
+    // for (j=start+0; j<suggestedWords.length; j++){
+    for (j=start+0; 100; j++){
             getSpanish(suggestedWords[j]);
 
         if(wordIsMissing){
