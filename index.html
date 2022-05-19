@@ -6,14 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma-rtl.min.css"/>
     <link rel="stylesheet" href="./assets/style.css"/>
+    <link rel="secondpage" href="./mywords.html">
 
     <title>Vocab Builder</title>
 </head>
 <body>
+    <br>
 
     <nav class="level">
         <p class="level-item has-text-centered">
-            <a class="link button is-primary is-outlined is-rounded">My Words</a> 
+            <a class="link button is-primary is-outlined is-rounded" id="my-words" href="./mywords.html">My Words</a> 
         </p>
         <p class="level-item has-text-centered title has-text-primary">
             Vocab Builder
@@ -73,20 +75,20 @@
                           </div>
                       </div>
                     </div> --><br><br>
-                <div class="columns is-mobile is-centered">
+                <div class="columns is-mobile">
                 <div class="column is-one-fifth is-mobile has-background-success-light box">
-                        <ul id="myUL" class="has-text-centered">
-                         <p class="has-text-weight-semibold is-size-5">English</p></ul>
-                       
+                        <div class="has-text-centered">
+                         <p class="has-text-weight-semibold is-size-5">English</p></div><br>
+                         <ul id="myUL"></ul>
                     </div>
                     <div class="column is-mobile has-background-success-light box">
                         <ul id="myDEF" class="has-text-centered">
-                         <p class="has-text-weight-semibold is-size-5">Definition</p></ul>
+                         <p class="has-text-weight-semibold is-size-5">Definition</p><br></ul>
                     
                     </div>
                     <div class="column is-one-fifth is-mobile has-background-success-light box">
                         <ul id="mySPANISH" class="has-text-centered">
-                         <p class="has-text-weight-semibold is-size-5">Spanish</p></ul>
+                         <p class="has-text-weight-semibold is-size-5">Spanish</p><br></ul>
                     </div>
         
                     <p >
@@ -101,5 +103,6 @@
     </section>
     <script src="./assets/js/words-list.js"></script>
     <script src="./assets/js/script.js"></script>
+    <script src="https://kit.fontawesome.com/6cb0f23ae9.js" crossorigin="anonymous"></script>
 </body>
 </html>
