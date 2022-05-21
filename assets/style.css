@@ -3,3 +3,7 @@
   flex-direction: row;
   justify-content: space-around;
 }
+
+li {
+  padding: 30px;
+}
