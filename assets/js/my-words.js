@@ -37,3 +37,8 @@ var displayMyWords = function (){
 var myWords = getAllWords("myWords");
 displayMyWords();
 
+// event listener
+document.getElementById("resetButton").addEventListener("click", function() {
+  clearStorage();
+  window.location.reload();
+});
