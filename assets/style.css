@@ -3,3 +3,23 @@
   flex-direction: row;
   justify-content: space-around;
 }
+
+.rows {
+  flex-direction: space-between;
+  width:100%;
+  display:flex
+}
+/* .row {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+} */
+
+.col1, .col3 {
+  width: 15%;
+}
+
+.col2 {
+  width: 60%;
+}

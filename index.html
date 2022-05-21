@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma-rtl.min.css"/>
-    <link rel="stylesheet" href="./assets/style.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma-rtl.min.css" />
+    <link rel="stylesheet" href="./assets/style.css" />
     <link rel="secondpage" href="./mywords.html">
 
     <title>Vocab Builder</title>
 </head>
+
 <body>
     <br>
 
     <nav class="level">
         <p class="level-item has-text-centered">
-            <a class="link button is-primary is-outlined is-rounded" id="my-words" href="./mywords.html">My Words</a> 
+            <a class="link button is-primary is-outlined is-rounded" id="my-words" href="./mywords.html">My Words</a>
         </p>
         <p class="level-item has-text-centered title has-text-primary">
             Vocab Builder
@@ -42,67 +44,62 @@
                 </div>
             </div>
         </div> -->
-           
 
-        <!-- </div>
+
+    <!-- </div>
 
     </header> -->
-    
+
     <section class="section">
         <div class="container">
-            
+
             <div class="columns is-mobile is-centered">
                 <div class="column is-half has-background-success-light box">
-                    <h1 class="subtitle has-text-primary">Welcome!!</h1><br><h2 class="subtitle is-family-monospace">Build a list of words in english and spanish with definitions. Then choose whether or not you would like to store it. Click the button below to start!</h5><br>
+                    <h1 class="subtitle has-text-primary">Welcome!!</h1><br>
+                    <h2 class="subtitle is-family-monospace">Build a list of words in english and spanish with
+                        definitions. Then choose whether or not you would like to store it. Click the button below to
+                        start!</h5><br>
                         <div class="control">
-                            <button id="get-word" class="button is-primary is-large is-fullwidth is-rounded" type="submit">Get My Word</button>
+                            <button id="get-word" class="button is-primary is-large is-fullwidth is-rounded"
+                                type="submit">Get My Word</button>
                         </div>
-                    </div>
+                </div>
+            </div>
+
+   <br><br>
+            <div id="wordsDiv" class="rows is-mobile">
+                <div class="column is-one-fifth is-mobile has-background-success-light box">
+                    <div class="has-text-centered">
+                        <p class="has-text-weight-semibold is-size-5">English</p>
+                    </div><br>
+                    <ul id="myUL"></ul>
+                </div>
+                <div class="column is-mobile has-background-success-light box">
+                    <ul id="myDEF" class="has-text-centered">
+                        <p class="has-text-weight-semibold is-size-5">Definition</p><br>
+                    </ul>
+
+                </div>
+                <div class="column is-one-fifth is-mobile has-background-success-light box">
+                    <ul id="mySPANISH" class="has-text-centered">
+                        <p class="has-text-weight-semibold is-size-5">Spanish</p><br>
+                    </ul>
                 </div>
 
-                <!-- <div class="columns">
-                    <div class="column">
-                      <p class="is-centered">First column</p>
-                      <div class="columns is-mobile">
-                        <div class="column">
-                          <p class="">First nested column</p>
-                        </div>
-                        <div class="column">
-                          <p class="">Second nested column</p>
-                        </div>
-                        <div class="column">
-                            <p class="">third nested column</p>
-                          </div>
-                      </div>
-                    </div> --><br><br>
-                <div class="columns is-mobile">
-                <div class="column is-one-fifth is-mobile has-background-success-light box">
-                        <div class="has-text-centered">
-                         <p class="has-text-weight-semibold is-size-5">English</p></div><br>
-                         <ul id="myUL"></ul>
-                    </div>
-                    <div class="column is-mobile has-background-success-light box">
-                        <ul id="myDEF" class="has-text-centered">
-                         <p class="has-text-weight-semibold is-size-5">Definition</p><br></ul>
-                    
-                    </div>
-                    <div class="column is-one-fifth is-mobile has-background-success-light box">
-                        <ul id="mySPANISH" class="has-text-centered">
-                         <p class="has-text-weight-semibold is-size-5">Spanish</p><br></ul>
-                    </div>
-        
-                    <p >
-                    </p>
-                </div> 
+                <p>
+                </p>
             </div>
         </div>
-       </div>
-    </div>
-    
+        </div>
+        </div>
+        </div>
+
 
     </section>
     <script src="./assets/js/words-list.js"></script>
-    <script src="./assets/js/script.js"></script>
     <script src="https://kit.fontawesome.com/6cb0f23ae9.js" crossorigin="anonymous"></script>
+    <!-- <script src="./assets/js/script2.js"></script> -->
+    <script src="./assets/js/script.js"></script>
 </body>
+
 </html>
