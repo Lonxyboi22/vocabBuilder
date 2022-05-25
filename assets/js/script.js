@@ -12,9 +12,6 @@ var wordTrinity = {
   spanish: ""
 };
 
-//generates random word:
-//var word = suggestedWords[Math.round(Math.random()*suggestedWords.length)];
-
 //this function uses the api to grab the dictionary definition of the word:
 function definition(word){
     const dictionaryapi = 'https://api.dictionaryapi.dev/api/v2/entries/en/' + word;
@@ -42,9 +39,7 @@ function addWordsStore(theWord){
 }
 
 function displayWords(word){
-   //console.log(data.definition);
-  // document.getElementById("word-list").innerHTML = word + ": " + data.definition;
-
+  
   var myWordLi = document.createElement("li");
   //myWordLi.setAttribute("id", "addToMyWords");
   const plusButtonId = "plusButtonWord" + wordListEl.childElementCount;
@@ -144,10 +139,6 @@ function getAllWords(key) {
   return data;
 }
 
-// var wordClick = function (event) {
-//     event.preventDefault();
-//     console.log("you gotta click...");
-// };
 
 // event listeners
 document.getElementById("resetButton").addEventListener("click", function() {
@@ -166,6 +157,3 @@ function delay(time) {
   return new Promise(resolve => setTimeout(resolve, time));
 }
 
-
-// wordListEl.addEventListener("click", wordClick); 
-//wordListEl.addEventListener("click", wordClick); 
