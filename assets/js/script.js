@@ -6,6 +6,12 @@ var spanishE1 = document.getElementById("mySPANISH");
 var wordDef = {};
 var theWord=document.getElementById("addToMyWords");
 
+var wordTrinity = {
+  word: "",
+  def: "",
+  spanish: ""
+};
+
 //generates random word:
 //var word = suggestedWords[Math.round(Math.random()*suggestedWords.length)];
 
@@ -61,21 +67,28 @@ function displayWords(word){
   var myWordLi = document.createElement("li");
   //myWordLi.setAttribute("id", "addToMyWords");
   const plusButtonId = "plusButtonWord" + wordListEl.childElementCount;
-  myWordLi.innerHTML = "<i class='fa-solid fa-plus button is-small is-primary is-rounded' id='" + plusButtonId + "'></i>" + word + "<br>";
+  myWordLi.innerHTML = "<i class='fa-solid fa-plus button is-small is-primary is-rounded' id='" + plusButtonId +"'></i>" + word + "<br>";
+  myWordLi.setAttribute("id",word);
   wordListEl.appendChild(myWordLi);
-  
-// function to click '+' which adds to MyStoreWords array to print out on My Words
-  document.getElementById(plusButtonId).addEventListener("click", function() {
-    storeWord(word, "selectedWords");
-  });
 
   
   var defLi = document.createElement("li");
   var definition = "" + wordDef.definitions[0].definition;
   defLi.innerHTML = definition;
+  defLi.setAttribute("id","d-"+word);
   defE1.appendChild(defLi);
 
   getSpanish(word);
+
+  // function to click '+' which adds to MyStoreWords array to print out on My Words
+  document.getElementById(plusButtonId).addEventListener("click", function() {
+    wordTrinity.word = this.parentNode.textContent
+    wordTrinity.def = document.getElementById("d-"+this.parentNode.textContent).textContent
+    wordTrinity.spanish = document.getElementById("s-"+this.parentNode.textContent).textContent
+
+    storeWord(wordTrinity, "myWords");
+  });
+
 }
 
 // function getSpanish(<englishWors as string>)
@@ -100,6 +113,7 @@ var getSpanish = function (englishWord){
                   spanishWord = data[0];
                 }
                 spanishLi.innerHTML = spanishWord;
+                spanishLi.setAttribute("id","s-"+englishWord);
                 spanishE1.appendChild(spanishLi);
             });
         } else {
@@ -116,15 +130,16 @@ var getSpanish = function (englishWord){
 
 
 // Function for saving words to local storage
-function storeWord(word, key) {
-  let data = localStorage.getItem(key);
-  if (data === null ) {
-    data = [word];
+function storeWord(wordTrinity, key) {
+
+  var myWords = JSON.parse(localStorage.getItem(key));
+  if (myWords === null ) {
+    myWords=[];
+    myWords.push(wordTrinity);
   } else {
-    data = JSON.parse(data);
-    data.push(word);
+    myWords.push(wordTrinity);
   }
-  localStorage.setItem(key, JSON.stringify(data));
+  localStorage.setItem(key, JSON.stringify(myWords));
 }
 
 // Function for clearing storage
@@ -142,6 +157,7 @@ function getLastWord(key) {
   return data[data.length - 1];
 }
 
+// *** dont think this is needed here - moved to my-words.js ***
 function getAllWords(key) {
   let data = localStorage.getItem(key);
   if (data === null) {
@@ -165,7 +181,7 @@ document.getElementById("resetButton").addEventListener("click", function() {
 //runs the definition function and displayword function:
 document.getElementById("get-word").addEventListener("click", function(){
   const word = randomWord();
-  storeWord(word, "words");
+  // storeWord(word, "words");
   definition(word);
 });
 

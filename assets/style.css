@@ -5,5 +5,5 @@
 }
 
 li {
-  height: 70px; 
-} 
+  height: 70px !important;
+}
