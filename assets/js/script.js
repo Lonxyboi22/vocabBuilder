@@ -32,25 +32,6 @@ function definition(word){
     });
 }
 
-//this function displays the english word under the button:
-//I JUST COMMENTED IT OUT SO CODE DIDNT BREAK, BUT WE CAN ADD THIS BACK IN :)
-// function displayWords(word){
-//     // console.log(data.definition);
-//     //document.getElementById("word-list").innerHTML = word + ": " + data.definition;
-
-//     var defList = document.createElement("li");
-//     defList.innerHTML = word + ": " + data.definition;
-//     console.log(defList);
-//     wordListEl.appendChild(defList);
-
-//     var spanList = document.createElement("li");
-//     spanList.innerHTML = word + "/" + spanishWord;
-//     spanishEl.appendChild(spanList);
-
-// function displayWords(data){
-//     // console.log(data.definition);
-//     document.getElementById("word-list").innerHTML = word + ": " + data.definition;
-// }
 // function to click '+' which adds to MyStoreWords array to print out on My Words
 function addWordsStore(theWord){
     myStoredWords=[];
@@ -91,11 +72,7 @@ function displayWords(word){
 
 }
 
-// function getSpanish(<englishWors as string>)
-// function requires an argument be passed to it
-// function sets teh global variable "spanishWord" wqual to the first work in the
-// 'shorddf' of the translation
-// englishWord= "bananas";
+// Spanish word function
 var getSpanish = function (englishWord){
     apiKey='246175eb-f44c-41df-8446-5e18508e4805';
 
