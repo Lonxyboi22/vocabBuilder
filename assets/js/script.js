@@ -12,9 +12,6 @@ var wordTrinity = {
   spanish: ""
 };
 
-//generates random word:
-//var word = suggestedWords[Math.round(Math.random()*suggestedWords.length)];
-
 //this function uses the api to grab the dictionary definition of the word:
 function definition(word){
     const dictionaryapi = 'https://api.dictionaryapi.dev/api/v2/entries/en/' + word;
@@ -32,25 +29,6 @@ function definition(word){
     });
 }
 
-//this function displays the english word under the button:
-//I JUST COMMENTED IT OUT SO CODE DIDNT BREAK, BUT WE CAN ADD THIS BACK IN :)
-// function displayWords(word){
-//     // console.log(data.definition);
-//     //document.getElementById("word-list").innerHTML = word + ": " + data.definition;
-
-//     var defList = document.createElement("li");
-//     defList.innerHTML = word + ": " + data.definition;
-//     console.log(defList);
-//     wordListEl.appendChild(defList);
-
-//     var spanList = document.createElement("li");
-//     spanList.innerHTML = word + "/" + spanishWord;
-//     spanishEl.appendChild(spanList);
-
-// function displayWords(data){
-//     // console.log(data.definition);
-//     document.getElementById("word-list").innerHTML = word + ": " + data.definition;
-// }
 // function to click '+' which adds to MyStoreWords array to print out on My Words
 function addWordsStore(theWord){
     myStoredWords=[];
@@ -61,9 +39,7 @@ function addWordsStore(theWord){
 }
 
 function displayWords(word){
-   //console.log(data.definition);
-  // document.getElementById("word-list").innerHTML = word + ": " + data.definition;
-
+  
   var myWordLi = document.createElement("li");
   //myWordLi.setAttribute("id", "addToMyWords");
   const plusButtonId = "plusButtonWord" + wordListEl.childElementCount;
@@ -91,11 +67,7 @@ function displayWords(word){
 
 }
 
-// function getSpanish(<englishWors as string>)
-// function requires an argument be passed to it
-// function sets teh global variable "spanishWord" wqual to the first work in the
-// 'shorddf' of the translation
-// englishWord= "bananas";
+// Spanish word function
 var getSpanish = function (englishWord){
     apiKey='246175eb-f44c-41df-8446-5e18508e4805';
 
@@ -167,10 +139,6 @@ function getAllWords(key) {
   return data;
 }
 
-// var wordClick = function (event) {
-//     event.preventDefault();
-//     console.log("you gotta click...");
-// };
 
 // event listeners
 document.getElementById("resetButton").addEventListener("click", function() {
@@ -189,6 +157,3 @@ function delay(time) {
   return new Promise(resolve => setTimeout(resolve, time));
 }
 
-
-// wordListEl.addEventListener("click", wordClick); 
-//wordListEl.addEventListener("click", wordClick); 
